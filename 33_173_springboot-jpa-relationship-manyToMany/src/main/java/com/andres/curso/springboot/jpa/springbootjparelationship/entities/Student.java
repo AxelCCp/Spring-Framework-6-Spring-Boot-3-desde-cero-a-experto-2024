@@ -29,7 +29,7 @@ public class Student {
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "tbl_alumnos_cursos", joinColumns = @JoinColumn(name="alumno_id"),
     inverseJoinColumns = @JoinColumn(name="curso_id"),
-    uniqueConstraints = @UniqueConstraint(columnNames = {"alumno_id", "curso_id"}))
+    uniqueConstraints = @UniqueConstraint(columnNames = {"alumno_id", "curso_id"}))  //174
     private Set<Course> courses;
 
     public Student() {
