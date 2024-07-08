@@ -8,15 +8,13 @@ import java.lang.annotation.Target;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
-@Constraint(validatedBy = ExistByUsernameValidation.class)
+@Constraint(validatedBy = IsExistsDbValidation.class)
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExistByUsername {
+public @interface IsExistsDb {
+    String message() default "ya existe en la base de datos!";
 
-    String message() default "Ya existe en la base de datos, escoja otro username";
+    Class<?>[] groups() default {};
 
-	Class<?>[] groups() default { };
-
-	Class<? extends Payload>[] payload() default { };
-
+    Class<? extends Payload>[] payload() default {};
 }
